@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .count{
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        .count button{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background-color: #ccc;
+            color: fff;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+            color: fff;
+           border: none;
+           float: left;
+           outline: none;
+
+        }
+        .count>button:nth-child(1){
+            border-bottom-left-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+        .count .add{
+            border-bottom-right-radius: 8px;
+            border-top-right-radius: 8px;
+            
+        }
+        .count>span{
+            border-top: 1px solid #ccc;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 30px;
+            color: red;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="count">
+            <button @click="slow">
+                -
+            </button>
+            <span>{{ message }}</span>
+            <button class="add" @click="add">
+                +
+            </button>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message: 0
+            }
+            ,methods:{
+                add:function(){
+                    this.message == 10 ? alert("增加上限"):this.message++;
+                },
+                slow:function(){
+                    this.message == 0 ? alert("无法减少"):this.message--;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
