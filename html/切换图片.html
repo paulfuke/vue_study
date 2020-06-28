@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img-box{
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 0 10px 10px 10px;
+            background-color: #ccc;
+            width: 300px;
+            position: relative;
+        }
+        .img-box>img{
+            width: 300px;
+            height: 300px;
+        }
+        .img-box>p{
+            margin: 0;
+            padding: 3px;
+            color: #fff;
+        }
+        .img-box>a{
+            display: block;
+            width: 20px;
+            position: absolute;
+            top: 40%;
+            height: 40px;
+            width: 30px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #bbb;
+            font-size: 30px;
+            text-decoration: none;
+            color: #eee;
+        }
+        .img-box>.left{
+            left: 0;
+        }
+        .img-box>.right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="img-box">
+            <p>文字介绍</p>
+            <img :src="images[roundCount]" alt="">
+            <a v-show="roundCount != 0" href="javascript:void(0)" class="left" @click="leftImage">
+                &lsaquo;
+            </a>
+            <a v-show="roundCount != images.length-1" href="javascript:void(0)" class="right" @click="rightImage">
+                &rsaquo;
+            </a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+               images:[
+                    "./../images/1.jpg",
+                    "./../images/2.jpg",
+                    "./../images/3.jpg",
+               ],
+               roundCount:0,
+            }
+            ,methods:{
+               rightImage:function(){
+                   this.roundCount++;
+
+               },
+               leftImage:function(){
+                    this.roundCount--;
+                },
+
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            <input type="text" name="username" v-model="user.username"> <br>
+            <input type="text" name="password" v-model="user.password"> <br>
+            <input type="button" value="提交" @keyup.enter="getUser">
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                user:{},
+            }
+            ,methods:{
+                getUser:function(){
+                    console.log(this.user);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
